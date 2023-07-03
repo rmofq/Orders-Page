@@ -1,0 +1,37 @@
+{
+  "customer-details": [
+    {
+      "shipperName": "Test",
+      "shipperAddress": "Test",
+      "shipperCN": "Test",
+      "consigneeName": "Test",
+      "consigneeAddress": "Test",
+      "consigneeCN": "Test",
+      "addtnlInsRem": "Test",
+      "itemAmount": "",
+      "itemDetails": [
+        {
+          "itemDesc": "Test",
+          "unit": "cm",
+          "quantity": 1,
+          "weight": 1,
+          "volume": "1"
+        },
+        {
+          "itemDesc": "Test",
+          "unit": "m",
+          "quantity": 2,
+          "weight": 2,
+          "volume": "2"
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "total-amount": [
+    {
+      "totalAmount": 12345,
+      "id": 1
+    }
+  ]
+}

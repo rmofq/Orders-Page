@@ -1,0 +1,14 @@
+.Header{
+    position: fixed;
+    position: sticky;
+    top: 0%;
+    width: 10%;
+    background-color:black;
+}
+.Footer{
+    position: fixed;
+    position: sticky;
+    bottom: 0%;
+    width: 10%;
+    background-color:black;
+}

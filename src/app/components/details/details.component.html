@@ -1,0 +1,103 @@
+<router-outlet (activate)="onActivate()"></router-outlet>
+<app-header class="Header"></app-header>
+<div class="container-fluid">
+    <h3 class="mt-3">Customer Information</h3>
+    <form [formGroup] = 'addDetails' (ngSubmit)="SaveData()">
+        <div class="form-group mb-3">
+            <label>Shipper Name:</label>
+            <input type="text" class="form-control" formControlName="shipperName">
+        </div>
+        <div class="form-group mb-3">
+            <label>Shipper Address:</label>
+            <input type="text" class="form-control" formControlName="shipperAddress">
+        </div>
+        <div class="form-group mb-3">
+            <label>Shipper Contact Number:</label>
+            <input type="tel" class="form-control" formControlName="shipperCN">
+        </div>
+        <div class="form-group mb-3">
+            <label>Consignee:</label>
+            <input type="text" class="form-control" formControlName="consigneeName">
+        </div>
+        <div class="form-group mb-3">
+            <label>Consignee Address:</label>
+            <input type="text" class="form-control" formControlName="consigneeAddress">
+        </div>
+        <div class="form-group mb-3">
+            <label>Consignee Contact Number:</label>
+            <input type="tel" class="form-control" formControlName="consigneeCN">
+        </div>
+        <div class="form-group mb-3">
+            <label>Additional Instructions/Remarks:</label>
+            <input type="text" class="form-control" formControlName="addtnlInsRem">
+        </div>
+        <!-- <div class="form-group">
+            <label></label>
+            <input type="hidden" class="form-control" formControlName="totalAmount" value=123>
+        </div> -->
+
+        <h3 class = "mt-1">Item Details</h3>
+        <div formArrayName="itemDetails">
+            <div *ngFor="let details of itemDetailsArray().controls; let i = index;">
+                <div [formGroupName]="i" style="border: 3px solid #000000;" class="rounded">
+                    <div class=" m-1 row">
+                        <div class="col">
+                            <label>Item Description:</label>
+                            <input type="text" class="form-control" placeholder="" formControlName="itemDesc">
+                        </div>
+                        <div class="col">
+                            <label>Unit of Measure:</label>
+                            <input type="text" class="form-control" placeholder="(cm, m, ft, in, etc.)" formControlName="unit">
+                        </div>
+                    </div>
+                    <div class="m-1 row">
+                        <div class="col">
+                            <label>Quantity:</label>
+                            <input type="number" class="form-control" placeholder="" formControlName="quantity">
+                        </div>
+                        <div class="col-md-1">
+                            <label>Weight:</label>
+                            <input type="number" class="form-control" placeholder="" formControlName="weight">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Unit:</label>
+                            <input type="text" class="form-control" placeholder="(g, kg, lbs, oz etc.)">
+                        </div>
+                        <div class="col">
+                            <label>Volume:</label>
+                            <input type="text" class="form-control" placeholder="(in m&#179;)" formControlName="volume" >
+                        </div>
+                        <div>
+                            <button type="button" (click) = "removeItem(i)" class ="btn btn-sm btn-danger mt-2 float-end">- Remove Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="button" (click) = "addItem()" class ="btn btn-sm btn-success mt-2">+ Add Item</button>
+            </div>
+                        <!-- <div class="form-group" *ngFor="let details of addDetailsControls(); let i = index">
+                <input type="text" class="form-control" [formControlName] = "i" />
+            </div> -->
+        </div> 
+
+
+
+
+
+
+
+        <div class="form-group mt-7 mb-3" style="text-align:center;">
+            <button type="submit" style="height:40px; width:100px" class="btn btn-secondary btn-sm">Submit</button>
+        </div> 
+        <div routerLink="/totals" class="form-group mt-7 mb-3" style="text-align:center;">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Next Page  <i class ="fa fa-solid fa-arrow-right"></i></button>
+        </div> 
+  
+    </form>
+
+
+
+
+<app-footer class="Footer"></app-footer>
+  

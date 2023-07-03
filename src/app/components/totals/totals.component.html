@@ -1,0 +1,45 @@
+<app-header class="Header"></app-header>
+<h3 class="mt-3">Details</h3>
+<div class="card mt-3" style="width: 100%">
+  <ul class="list-group list-group-flush" *ngFor="let item of customerDetails">
+    <div class="card-header">
+      <strong class="float-start">Customer Details #{{item.id}}</strong>
+      <button type="button" (click)="deleteCustomerDetails(item.id)" class ="btn btn-sm btn-danger float-end"><b>Delete</b></button>
+    </div>
+    <li class="list-group-item">Shipper Name: {{item.shipperName}}</li>
+    <li class="list-group-item">Shipper Address: {{item.shipperAddress}}</li>
+    <li class="list-group-item">Shipper Contact Number: {{item.shipperCN}}</li>
+    <li class="list-group-item">Consignee Name: {{item.consigneeName}}</li>
+    <li class="list-group-item">Consignee Address: {{item.consigneeAddress}}</li>
+    <li class="list-group-item">Consignee Contact Number: {{item.consigneeName}}</li>
+    <li class="list-group-item">Additional Instructions/Remarks: {{item.addtnlInsRem}}</li>
+      <div class="card float-start" style="width: 50%;">
+        <ul *ngFor="let iteminf of item.itemDetails; let i = index" >
+          <div class="card-header">
+            Item {{[i+1]}}
+          </div>
+          <li class="list-group-item">Item Description: <span class="text-muted">{{iteminf.itemDesc}}</span></li>
+          <li class="list-group-item">Unit of Measure: {{iteminf.unit}}</li>
+          <li class="list-group-item">Quantity: {{iteminf.quantity}}</li>
+          <li class="list-group-item">Weight: {{iteminf.weight}}</li>
+          <li class="list-group-item">Volume: {{iteminf.volume}}</li>
+        </ul>
+      </div>
+  </ul>
+  <form [formGroup] = 'addAmount' (ngSubmit)="SaveDataAm()">
+    &nbsp;<label><strong>Total Amount:</strong></label>
+    <input type="number" class="form-control mb-3" style="width: auto;" formControlName="totalAmount">
+    <div class="form-group mt-7 mb-3" style="text-align:center;">
+      <button type="submit" style="height:40px; width:100px" class="btn btn-secondary btn-sm">Submit</button>
+    </div> 
+  </form>
+  <div style="display: flex; justify-content: center;">
+    <div routerLink="/details" class="form-group mt-7 mb-3" style="text-align:center;">
+      <button type="submit" class="btn btn-primary btn-sm btn-block"><i class ="fa fa-solid fa-arrow-left"></i> Previous Page</button>
+    </div>&nbsp;
+    <div routerLink="/summary" class="form-group mt-7 mb-3" style="text-align:center;">
+      <button type="submit" class="btn btn-primary btn-sm btn-block">Next Page <i class ="fa fa-solid fa-arrow-right"></i></button>
+  </div>
+
+</div>
+<app-footer class="Footer">{{sum}}</app-footer>

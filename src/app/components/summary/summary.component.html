@@ -1,0 +1,44 @@
+<app-header class="Header"></app-header>
+<h3 class="mt-3">Summary</h3>
+<div class="card mt-3" style="width: 100%">
+  <ul class="list-group list-group-flush" *ngFor="let item of customerDetails">
+    <div class="card-header">
+      <strong class="float-start">Customer Details #{{item.id}}</strong>
+    </div>
+    <li class="list-group-item">Shipper Name: {{item.shipperName}}</li>
+    <li class="list-group-item">Shipper Address: {{item.shipperAddress}}</li>
+    <li class="list-group-item">Shipper Contact Number: {{item.shipperCN}}</li>
+    <li class="list-group-item">Consignee Name: {{item.consigneeName}}</li>
+    <li class="list-group-item">Consignee Address: {{item.consigneeAddress}}</li>
+    <li class="list-group-item">Consignee Contact Number: {{item.consigneeName}}</li>
+    <li class="list-group-item">Additional Instructions/Remarks: {{item.addtnlInsRem}}</li>
+      <div class="card" style="width: 50%;">
+        <ul *ngFor="let iteminf of item.itemDetails" >
+          <div class="card-header">
+            Items:
+          </div>
+          <li class="list-group-item">Item Description: {{iteminf.itemDesc}}</li>
+          <li class="list-group-item">Unit of Measure: {{iteminf.unit}}</li>
+          <li class="list-group-item">Quantity: {{iteminf.quantity}}</li>
+          <li class="list-group-item">Weight: {{iteminf.weight}}</li>
+          <li class="list-group-item">Volume: {{iteminf.volume}}</li>
+          <div class="card-footer"></div>
+        </ul>
+      </div>
+    <ul class="list-group list-group-flush" *ngFor="let item of customerDetailsAm">
+        <li class="list-group-item">Total Amount: {{item.totalAmount}}</li>
+    </ul>
+  </ul>
+
+  <!-- <div class="form-group mt-7 mb-3" style="text-align:center;">
+    <button type="submit" style="height:40px; width:100px" class="btn btn-secondary btn-sm">Submit</button>
+  </div>  -->
+  <div routerLink="/details" class="form-group mt-7 mb-3" style="text-align:center;">
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Order Again</button>
+  </div> 
+</div>
+
+
+
+
+<app-footer class="Footer"></app-footer>
