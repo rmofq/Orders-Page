@@ -61,6 +61,7 @@ export class DetailsComponent implements OnInit {
   }
   removeItem(i: number){
     this.itemDetailsArray().removeAt(i);
+    console.log()
   }
   SaveData(){
     this.totals.saveCustomerDetails(this.addDetails.value).subscribe((result)=>{console.log(result);});
